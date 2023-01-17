@@ -4,7 +4,6 @@ import { faFile } from "@fortawesome/free-solid-svg-icons";
 import Personal from "./components/Personal";
 import WorkExperience from "./components/WorkExperience";
 import Education from "./components/Education";
-
 export class App extends Component {
   constructor(props) {
     super(props);
@@ -47,7 +46,6 @@ export class App extends Component {
 
   personalEditHandler = (event) => {
     // console.log(Ref.current);
-    console.log(event.target.id);
     const toEditId = event.target.id;
     this.setState(
       (prevState) => (prevState.personalInfo[toEditId][0] = event.target.value)
@@ -58,7 +56,6 @@ export class App extends Component {
     // console.log(Ref.current);
     event.preventDefault();
     console.log(workExpObj);
-    console.log("addWorkExperience function");
     // const toEditId = event.target.id;
     //mapping object
     this.setState(
@@ -67,17 +64,35 @@ export class App extends Component {
     console.log(this.state);
   };
 
-  removeInfoHandler = (event) => {
+  removeInfoHandler = (category, id) => {
     console.log("removeInfoHandler");
-    let id = event.target.id;
-    id = id.split(" ");
-    const info = id[0];
-    const key = id[1];
+    // console.log(event);
+    // let id = event.target.id;
+    // alert(event.target.id);
+    // id = id.split(" ");
+    // const info = id[0];
+    // const keyId = id[1];
+    // console.log(keyId);
+
+    // this.setState( (prevState) =>()
+    //   prevState[info] = prevState[info].filter((_,))
+    // );
+
     this.setState(
       (prevState) =>
-        (prevState[info] = prevState[info].filter((index) => index != key))
+        (prevState[category] = prevState[category].filter(
+          (x = prevState[category]) => x.uniqueId !== id
+        ))
     );
-    console.log(this.state.workInfo);
+    // this.setState((prevState) => ({
+    //   workInfo: prevState.workInfo.filter((workInfo) => workInfo.uniqueId !== id),
+    // }));
+
+    // this.setState({
+    //   workInfo: this.state.workInfo.filter((_, uniqueId) => uniqueId !== id),
+    // });
+
+    console.log(this.state);
   };
 
   render() {
@@ -102,9 +117,20 @@ export class App extends Component {
             workInfo={workInfo}
             addWorkExperienceHandler={this.addWorkExperienceHandler}
             removeInfoHandler={this.removeInfoHandler}
+            category = "workInfo"
           />
 
-          <Education educationInfo={educationInfo} />
+          <Education educationInfo={educationInfo} 
+            removeInfoHandler={this.removeInfoHandler}
+            category = "educationInfo"
+          
+          />
+
+          {/* <Skill skillInfo={educationInfo} 
+            removeInfoHandler={this.removeInfoHandler}
+            category = "skillInfo"
+          
+          /> */}
         </div>
       </div>
     );

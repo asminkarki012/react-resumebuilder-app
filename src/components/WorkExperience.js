@@ -1,20 +1,21 @@
 import { faRemove } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 // import DisplaySummaryInfo from "./DisplaySummaryInfo";
 
 function WorkExperience(props) {
-  const { addWorkExperienceHandler, workInfo, removeInfoHandler } = props;
-
-  const workExpObj = {};
+  const { addWorkExperienceHandler, workInfo, removeInfoHandler,category} = props;
+  const workExpObj = {uniqueId:uuidv4()};
   const [experienceAdd, setExperienceAdd] = useState(true);
 
   const workExperienceChangeHandler = (event) => {
     workExpObj[event.target.id] = event.target.value;
   };
-  const displaySummaryInfo = (displayInfo, i) => {
+  const displaySummaryInfo = (displayInfo) => {
+    console.log(displayInfo);
     return (
-      <div className="flex justify-between my-4" key={`workInfo ${i}`}>
+      <div className="flex justify-between my-4" key={displayInfo.uniqueId}>
         <div className="flex">
           <hr className="border-l-4 border-gray-400 h-full"></hr>
           <div className="ml-4">
@@ -30,30 +31,25 @@ function WorkExperience(props) {
           <p>{displayInfo.expStorRole}</p>
           <p>{displayInfo.expStorRoleDesc}</p>
         </div>
-
         <button
           className="my-auto bg-gray-300 rounded-md p-2 px-4 hover:bg-gray-400"
-          id={`workInfo ${i}`}
-          onClick={(event) => removeInfoHandler(event)}
+          onClick={() => removeInfoHandler(category,displayInfo.uniqueId)}
         >
-          <span>
-            <FontAwesomeIcon icon={faRemove}></FontAwesomeIcon>
-          </span>
+          <FontAwesomeIcon icon={faRemove}></FontAwesomeIcon>
         </button>
       </div>
     );
   };
   const joinWorkSummaryInfo = () => {
     let joinWorkSummaryInfo = [];
-
+    console.log("joinWorkSUmmary info");
     for (let i in workInfo) {
-      joinWorkSummaryInfo.push(displaySummaryInfo(workInfo[i], i));
+      joinWorkSummaryInfo.push(displaySummaryInfo(workInfo[i]));
       // <DisplaySummaryInfo displayInfo={workInfo[i]} workInfo={workInfo} key={`workInfo ${i}`} removeInfoHandler={removeInfoHandler} />
       // );
-      // console.log(joinWorkSummaryInfo);
     }
 
-    return <div>{joinWorkSummaryInfo}</div>;
+    return <>{joinWorkSummaryInfo}</>;
 
     // return (
     //   <div className="flex justify-between my-4">
@@ -177,36 +173,14 @@ function WorkExperience(props) {
   };
 
   return (
-    <React.Fragment>
+    <>
       <div className="flex flex-col mx-6 my-4 items-start">
         <p className="text-xl font-semibold">WORK EXPERIENCES</p>
         <hr className="border-t-4 w-12 square border-gray-400" />
         <div className="w-full">
-          {workInfo.length !== 0 ? (
-            joinWorkSummaryInfo()
-          ) : (
-            <div className="flex justify-between my-4">
-              <div className="flex">
-                <hr className="border-l-4 border-gray-400 h-full"></hr>
-                <div className="ml-4">
-                  <p>Company Name</p>
-                  <p>Address</p>
-                  <p>years</p>
-                </div>
-              </div>
-
-              <div>
-                <p>Role</p>
-                <p>Role Descriptions</p>
-              </div>
-
-              <button className="my-auto bg-gray-400 rounded-md p-2 px-4">
-                <span>
-                  <FontAwesomeIcon icon={faRemove}></FontAwesomeIcon>
-                </span>
-              </button>
-            </div>
-          )}
+          {workInfo.length !== 0
+            ? joinWorkSummaryInfo()
+            : null}
         </div>
         <div className="w-full">
           {experienceAdd ? (
@@ -221,7 +195,7 @@ function WorkExperience(props) {
         </div>
       </div>
       <hr className="border-t-4 mx-6 square border-gray-400" />
-    </React.Fragment>
+    </>
   );
 }
 
