@@ -4,6 +4,7 @@ import { faFile } from "@fortawesome/free-solid-svg-icons";
 import Personal from "./components/Personal";
 import WorkExperience from "./components/WorkExperience";
 import Education from "./components/Education";
+import Skill from "./components/Skill";
 export class App extends Component {
   constructor(props) {
     super(props);
@@ -21,26 +22,9 @@ export class App extends Component {
         linkedin: ["Linkedin", false],
       },
       workInfo: [],
-      educationInfo: {
-        eduStorComp: [],
-        eduStorCity: [],
-        eduStorYrFrm: [],
-        eduStorYrTo: [],
-        eduStorRole: [],
-        eduStorRoleDesc: [],
-        eduInpComp: "",
-        eduInpCity: "",
-        eduInpYrFrm: "",
-        eduInpYrTo: "",
-        eduInpRole: "",
-        eduInpRoleDesc: "",
-        educationAdd: false,
-      },
-      skillInfo: {
-        expertStor: [],
-        expertInp: [],
-        skillsAdd: false,
-      },
+      educationInfo: [],
+      skillInfo: [],
+      pdfMode: false,
     };
   }
 
@@ -52,31 +36,16 @@ export class App extends Component {
     );
   };
 
-  addWorkExperienceHandler = (event, workExpObj) => {
-    // console.log(Ref.current);
-    event.preventDefault();
-    console.log(workExpObj);
-    // const toEditId = event.target.id;
-    //mapping object
+  addInfoHandler = (event, category, infoObj) => {
     this.setState(
-      (prevState) => (prevState.workInfo = [...prevState.workInfo, workExpObj])
+      (prevState) => (prevState[category] = [...prevState[category], infoObj])
     );
-    console.log(this.state);
+
+    event.preventDefault();
   };
 
   removeInfoHandler = (category, id) => {
     console.log("removeInfoHandler");
-    // console.log(event);
-    // let id = event.target.id;
-    // alert(event.target.id);
-    // id = id.split(" ");
-    // const info = id[0];
-    // const keyId = id[1];
-    // console.log(keyId);
-
-    // this.setState( (prevState) =>()
-    //   prevState[info] = prevState[info].filter((_,))
-    // );
 
     this.setState(
       (prevState) =>
@@ -91,12 +60,10 @@ export class App extends Component {
     // this.setState({
     //   workInfo: this.state.workInfo.filter((_, uniqueId) => uniqueId !== id),
     // });
-
-    console.log(this.state);
   };
 
   render() {
-    const { personalInfo, workInfo, educationInfo } = this.state;
+    const { personalInfo, workInfo, educationInfo, skillInfo } = this.state;
     return (
       <div className="flex flex-col items-center justify-center">
         <div className="items-center my-4">
@@ -107,7 +74,7 @@ export class App extends Component {
             <div>Resume Builder App</div>
           </h2>
         </div>
-        <div id="main-body" className="bg-white h-[29.7cm] w-[21cm] border-4">
+        <div id="main-body" className="bg-white w-[21cm] border-4">
           <Personal
             personalInfo={personalInfo}
             personalEditHandler={this.personalEditHandler}
@@ -115,22 +82,24 @@ export class App extends Component {
 
           <WorkExperience
             workInfo={workInfo}
-            addWorkExperienceHandler={this.addWorkExperienceHandler}
+            addInfoHandler={this.addInfoHandler}
             removeInfoHandler={this.removeInfoHandler}
-            category = "workInfo"
+            category="workInfo"
           />
 
-          <Education educationInfo={educationInfo} 
+          <Education
+            educationInfo={educationInfo}
+            addInfoHandler={this.addInfoHandler}
             removeInfoHandler={this.removeInfoHandler}
-            category = "educationInfo"
-          
+            category="educationInfo"
           />
 
-          {/* <Skill skillInfo={educationInfo} 
+          <Skill
+            skillInfo={skillInfo}
             removeInfoHandler={this.removeInfoHandler}
-            category = "skillInfo"
-          
-          /> */}
+            addInfoHandler={this.addInfoHandler}
+            category="skillInfo"
+          />
         </div>
       </div>
     );
