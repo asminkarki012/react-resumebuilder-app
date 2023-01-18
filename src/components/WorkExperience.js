@@ -3,7 +3,8 @@ import { v4 as uuidv4 } from "uuid";
 import DisplaySummaryInfo from "./DisplaySummaryInfo";
 
 function WorkExperience(props) {
-  const { addInfoHandler, workInfo, removeInfoHandler, category } = props;
+  const { addInfoHandler, workInfo, removeInfoHandler, category, workingMode } =
+    props;
   const workExpObj = { uniqueId: uuidv4() };
   const [experienceAdd, setExperienceAdd] = useState(false);
 
@@ -21,6 +22,7 @@ function WorkExperience(props) {
           key={workInfo[i].uniqueId}
           category={category}
           removeInfoHandler={removeInfoHandler}
+          workingMode={workingMode}
         />
       );
     }
@@ -109,13 +111,9 @@ function WorkExperience(props) {
         </div>
 
         <div className="flex gap-4">
-          <div className="font-semibold w-24 bg-gray-300 text-base px-2 py-2 text-gray-600 rounded my-4 hover:bg-gray-400">
-            <button onClick={() => setExperienceAdd(false)}>Cancel</button>
+            <button className="font-semibold w-40 bg-gray-300 text-base px-2 py-2  text-gray-600 rounded my-4 hover:bg-gray-400" onClick={() => setExperienceAdd(false)}>Cancel</button>
+            <button className= "font-semibold w-40 bg-gray-300 text-base px-2 py-2 text-gray-600 rounded my-4 hover:bg-gray-400" type="submit">+Work Experience</button>
           </div>
-          <div className="font-semibold w-36 bg-gray-300 text-base py-2 text-gray-600 rounded my-4 hover:bg-gray-400">
-            <button type="submit">+Work Experience</button>
-          </div>
-        </div>
       </form>
     );
   };
@@ -129,15 +127,13 @@ function WorkExperience(props) {
           {workInfo.length !== 0 ? joinWorkSummaryInfo() : null}
         </div>
         <div className="w-full">
-          {experienceAdd ? (
+          {experienceAdd && workingMode? (
             addWorkExperience()
-          ) : (
-            <div className="font-semibold bg-gray-300 w-36 text-base py-2 text-gray-600 rounded my-4 hover:bg-gray-400">
-              <button onClick={() => setExperienceAdd(true)}>
+          ) : workingMode ? (
+              <button className="font-semibold w-40 bg-gray-300 text-base px-2 py-2 text-gray-600 rounded my-4 hover:bg-gray-400" type="button" onClick={() => setExperienceAdd(true)}>
                 +Work Experience
               </button>
-            </div>
-          )}
+          ) : null}
         </div>
       </div>
       <hr className="border-t-4 mx-6 square border-gray-400" />

@@ -2,7 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRemove } from "@fortawesome/free-solid-svg-icons";
 function DisplaySummaryInfo(props) {
-  const { displayInfo, removeInfoHandler, category } = props;
+  const { displayInfo, removeInfoHandler, category, workingMode } = props;
 
   console.log("Checking Display Summary info");
   console.log(displayInfo);
@@ -25,14 +25,16 @@ function DisplaySummaryInfo(props) {
           <p>{displayInfo.expStorRoleDesc}</p>
         </div>
 
-        <button
-          className="my-auto bg-gray-300 rounded-md p-2 px-4 hover:bg-gray-400"
-          onClick={() => removeInfoHandler(category, displayInfo.uniqueId)}
-        >
-          <span>
-            <FontAwesomeIcon icon={faRemove}></FontAwesomeIcon>
-          </span>
-        </button>
+        {workingMode ? (
+          <button
+            className="my-auto bg-gray-300 rounded-md p-2 px-4 hover:bg-gray-400"
+            onClick={() => removeInfoHandler(category, displayInfo.uniqueId)}
+          >
+            <span>
+              <FontAwesomeIcon icon={faRemove}></FontAwesomeIcon>
+            </span>
+          </button>
+        ) : null}
       </div>
     );
   } else if (category === "educationInfo") {
@@ -54,25 +56,7 @@ function DisplaySummaryInfo(props) {
           <p>{displayInfo.eduStorRoleDesc}</p>
         </div>
 
-        <button
-          className="my-auto bg-gray-300 rounded-md p-2 px-4 hover:bg-gray-400"
-          onClick={() => removeInfoHandler(category, displayInfo.uniqueId)}
-        >
-          <span>
-            <FontAwesomeIcon icon={faRemove}></FontAwesomeIcon>
-          </span>
-        </button>
-      </div>
-    );
-  } else if (category === "skillInfo") {
-    return (
-      <div className="flex my-4 mx-4 w-72 justify-between gap-8 items-center">
-        <div>
-          <ul className="list-disc">
-            <li> {displayInfo.skillStor}</li>
-          </ul>
-        </div>
-        <div>
+        {workingMode ? (
           <button
             className="my-auto bg-gray-300 rounded-md p-2 px-4 hover:bg-gray-400"
             onClick={() => removeInfoHandler(category, displayInfo.uniqueId)}
@@ -81,7 +65,30 @@ function DisplaySummaryInfo(props) {
               <FontAwesomeIcon icon={faRemove}></FontAwesomeIcon>
             </span>
           </button>
+        ) : null}
+      </div>
+    );
+  } else if (category === "skillInfo") {
+    return (
+      <div className="flex my-2 mx-4 w-72 justify-between gap-8 items-center">
+        <div>
+          <ul className="list-disc">
+            <li> {displayInfo.skillStor}</li>
+          </ul>
         </div>
+
+        {workingMode ? (
+          <div>
+            <button
+              className="my-auto bg-gray-300 rounded-md p-2 px-4 hover:bg-gray-400"
+              onClick={() => removeInfoHandler(category, displayInfo.uniqueId)}
+            >
+              <span>
+                <FontAwesomeIcon icon={faRemove}></FontAwesomeIcon>
+              </span>
+            </button>
+          </div>
+        ) : null}
       </div>
     );
   }

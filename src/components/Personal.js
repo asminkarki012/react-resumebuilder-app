@@ -1,4 +1,4 @@
-import React,{useRef} from "react";
+import React, { useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faLink,
@@ -6,11 +6,6 @@ import {
   faPhone,
 } from "@fortawesome/free-solid-svg-icons";
 
-// const personalEditHandler = (firstNameRef) => {
-//   console.log("personal edit handler");
-//   console.log(firstNameRef.current.readOnly);
-//   firstNameRef.current.readOnly = false;
-//   firstNameRef.current.value=""; //   console.log(firstNameRef.current.readOnly); // firstNameRef.current.removeAttribute("readOnly"); // document.getElementById("firstName").removeAttribute("readOnly"); // this.setState({personalInfo:event.target.value}); // };
 function Personal(props) {
   const { personalInfo, personalEditHandler } = props;
   const firstNameRef = useRef();
@@ -41,7 +36,7 @@ function Personal(props) {
             value={personalInfo.currentRole[0]}
           />
         </div>
-        <div className="text-xs my-4 flex flex-col gap-2">
+        <div className="text-base my-4 flex flex-col gap-2">
           <input
             id="address1"
             onChange={(event) => personalEditHandler(event)}
@@ -53,27 +48,27 @@ function Personal(props) {
             onChange={(event) => personalEditHandler(event)}
             value={personalInfo.address2[0]}
           />
-
           <span>
-            <FontAwesomeIcon icon={faPhone} />
+            <FontAwesomeIcon className="mr-2" icon={faPhone} />
             <input
               id="phone"
               onChange={(event) => personalEditHandler(event)}
               value={personalInfo.phone[0]}
+              className=""
             />
           </span>
 
           <span>
-            <FontAwesomeIcon icon={faMailForward} />
+            <FontAwesomeIcon className="mr-2" icon={faMailForward} />
             <input
-              id="mail"
+              id="email"
               onChange={(event) => personalEditHandler(event)}
               value={personalInfo.email[0]}
             />
           </span>
 
           <span>
-            <FontAwesomeIcon icon={faLink} />
+            <FontAwesomeIcon className="mr-2" icon={faLink} />
             <input
               id="linkedin"
               onChange={(event) => personalEditHandler(event)}

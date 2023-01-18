@@ -3,7 +3,13 @@ import { v4 as uuidv4 } from "uuid";
 import DisplaySummaryInfo from "./DisplaySummaryInfo";
 
 function Education(props) {
-  const { addInfoHandler, educationInfo, removeInfoHandler, category } = props;
+  const {
+    addInfoHandler,
+    educationInfo,
+    removeInfoHandler,
+    category,
+    workingMode,
+  } = props;
   const educationExpObj = { uniqueId: uuidv4() };
   const [educationAdd, setEducationAdd] = useState(false);
 
@@ -20,6 +26,7 @@ function Education(props) {
           key={educationInfo[i].uniqueId}
           category={category}
           removeInfoHandler={removeInfoHandler}
+          workingMode={workingMode}
         />
       );
       //   joinWorkSummaryInfo.push(displaySummaryInfo(workInfo[i]));
@@ -40,7 +47,9 @@ function Education(props) {
         }}
       >
         <div className="flex flex-col gap-2">
-          <label className="text-sm font-semibold">University or School Name</label>
+          <label className="text-sm font-semibold">
+            University or School Name
+          </label>
           <input
             type="text"
             id="eduStorComp"
@@ -113,12 +122,18 @@ function Education(props) {
         </div>
 
         <div className="flex gap-4">
-          <div className="font-semibold w-24 bg-gray-300 text-base px-4 py-2 text-gray-600 rounded my-4 hover:bg-gray-400">
-            <button onClick={() => setEducationAdd(false)}>Cancel</button>
-          </div>
-          <div className="font-semibold w-36 bg-gray-300 text-base px-4 py-2 text-gray-600 rounded my-4 hover:bg-gray-400">
-            <button type="submit">+Education</button>
-          </div>
+          <button
+            className="font-semibold w-40 bg-gray-300 text-base px-2 py-2 text-gray-600 rounded my-4 hover:bg-gray-400"
+            onClick={() => setEducationAdd(false)}
+          >
+            Cancel
+          </button>
+          <button
+            className="font-semibold w-40 bg-gray-300 text-base px-2 py-2 text-gray-600 rounded my-4 hover:bg-gray-400"
+            type="submit"
+          >
+            +Education
+          </button>
         </div>
       </form>
     );
@@ -133,13 +148,16 @@ function Education(props) {
           {educationInfo.length !== 0 ? joinEducationSummaryInfo() : null}
         </div>
         <div className="w-full">
-          {educationAdd ? (
+          {educationAdd && workingMode ? (
             addEducationExperience()
-          ) : (
-            <div className="font-semibold bg-gray-300 w-36 text-base px-2 py-2 text-gray-600 rounded my-4 hover:bg-gray-400">
-              <button onClick={() => setEducationAdd(true)}>+Education</button>
-            </div>
-          )}
+          ) : workingMode ? (
+            <button
+              className="font-semibold w-40 bg-gray-300 text-base px-2 py-2 text-gray-600 rounded my-4 hover:bg-gray-400"
+              onClick={() => setEducationAdd(true)}
+            >
+              +Education
+            </button>
+          ) : null}
         </div>
       </div>
       <hr className="border-t-4 mx-6 square border-gray-400" />

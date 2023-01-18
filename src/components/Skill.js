@@ -3,7 +3,13 @@ import { v4 as uuidv4 } from "uuid";
 import DisplaySummaryInfo from "./DisplaySummaryInfo";
 
 function Skill(props) {
-  const { addInfoHandler, skillInfo, removeInfoHandler, category } = props;
+  const {
+    addInfoHandler,
+    skillInfo,
+    removeInfoHandler,
+    category,
+    workingMode,
+  } = props;
   const skillObj = { uniqueId: uuidv4() };
   const [addSkill, setAddSkill] = useState(false);
 
@@ -20,6 +26,7 @@ function Skill(props) {
           key={skillInfo[i].uniqueId}
           category={category}
           removeInfoHandler={removeInfoHandler}
+          workingMode={workingMode}
         />
       );
     }
@@ -48,12 +55,18 @@ function Skill(props) {
         </div>
 
         <div className="flex gap-4">
-          <div className="font-semibold w-24 bg-gray-300 text-base px-2 py-2 text-gray-600 rounded my-4 hover:bg-gray-400">
-            <button onClick={() => setAddSkill(false)}>Cancel</button>
-          </div>
-          <div className="font-semibold w-36 bg-gray-300 text-base px-2 py-2 text-gray-600 rounded my-4 hover:bg-gray-400">
-            <button type="submit">+Skill </button>
-          </div>
+          <button
+            className="font-semibold w-40 bg-gray-300 text-base px-2 py-2 text-gray-600 rounded my-4 hover:bg-gray-400"
+            onClick={() => setAddSkill(false)}
+          >
+            Cancel
+          </button>
+          <button
+            className="font-semibold w-40 bg-gray-300 text-base px-2 py-2 text-gray-600 rounded my-4 hover:bg-gray-400"
+            type="submit"
+          >
+            +Skill{" "}
+          </button>
         </div>
       </form>
     );
@@ -68,13 +81,16 @@ function Skill(props) {
           {skillInfo.length !== 0 ? joinSkillSummaryInfo() : null}
         </div>
         <div className="w-full">
-          {addSkill ? (
+          {addSkill && workingMode ? (
             addSkillHandler()
-          ) : (
-            <div className="font-semibold bg-gray-300 w-36 text-base px-2 py-2 text-gray-600 rounded my-4 hover:bg-gray-400">
-              <button onClick={() => setAddSkill(true)}>+Skills</button>
-            </div>
-          )}
+          ) : workingMode ? (
+            <button
+              className="font-semibold bg-gray-300 w-36 text-base px-2 py-2 text-gray-600 rounded my-4 hover:bg-gray-400"
+              onClick={() => setAddSkill(true)}
+            >
+              +Skills
+            </button>
+          ) : null}
         </div>
       </div>
       <hr className="border-t-4 mx-6 square border-gray-400" />
