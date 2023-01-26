@@ -1,15 +1,21 @@
 {
   "files": {
-    "main.css": "/asminkarki012/react-resumebuilder-app.git/static/css/main.d4ad3b30.css",
-    "main.js": "/asminkarki012/react-resumebuilder-app.git/static/js/main.55e09dba.js",
+    "main.css": "/asminkarki012/react-resumebuilder-app.git/static/css/main.3489285a.css",
+    "main.js": "/asminkarki012/react-resumebuilder-app.git/static/js/main.9c471605.js",
+    "static/js/498.2fdfcc5c.chunk.js": "/asminkarki012/react-resumebuilder-app.git/static/js/498.2fdfcc5c.chunk.js",
+    "static/js/703.735b4a13.chunk.js": "/asminkarki012/react-resumebuilder-app.git/static/js/703.735b4a13.chunk.js",
+    "static/js/55.922ac662.chunk.js": "/asminkarki012/react-resumebuilder-app.git/static/js/55.922ac662.chunk.js",
     "static/js/787.290b67da.chunk.js": "/asminkarki012/react-resumebuilder-app.git/static/js/787.290b67da.chunk.js",
     "index.html": "/asminkarki012/react-resumebuilder-app.git/index.html",
-    "main.d4ad3b30.css.map": "/asminkarki012/react-resumebuilder-app.git/static/css/main.d4ad3b30.css.map",
-    "main.55e09dba.js.map": "/asminkarki012/react-resumebuilder-app.git/static/js/main.55e09dba.js.map",
+    "main.3489285a.css.map": "/asminkarki012/react-resumebuilder-app.git/static/css/main.3489285a.css.map",
+    "main.9c471605.js.map": "/asminkarki012/react-resumebuilder-app.git/static/js/main.9c471605.js.map",
+    "498.2fdfcc5c.chunk.js.map": "/asminkarki012/react-resumebuilder-app.git/static/js/498.2fdfcc5c.chunk.js.map",
+    "703.735b4a13.chunk.js.map": "/asminkarki012/react-resumebuilder-app.git/static/js/703.735b4a13.chunk.js.map",
+    "55.922ac662.chunk.js.map": "/asminkarki012/react-resumebuilder-app.git/static/js/55.922ac662.chunk.js.map",
     "787.290b67da.chunk.js.map": "/asminkarki012/react-resumebuilder-app.git/static/js/787.290b67da.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d4ad3b30.css",
-    "static/js/main.55e09dba.js"
+    "static/css/main.3489285a.css",
+    "static/js/main.9c471605.js"
   ]
 }
