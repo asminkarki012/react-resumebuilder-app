@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/asminkarki012/react-resumebuilder-app.git/static/css/main.d4ad3b30.css",
+    "main.js": "/asminkarki012/react-resumebuilder-app.git/static/js/main.55e09dba.js",
+    "static/js/787.290b67da.chunk.js": "/asminkarki012/react-resumebuilder-app.git/static/js/787.290b67da.chunk.js",
+    "index.html": "/asminkarki012/react-resumebuilder-app.git/index.html",
+    "main.d4ad3b30.css.map": "/asminkarki012/react-resumebuilder-app.git/static/css/main.d4ad3b30.css.map",
+    "main.55e09dba.js.map": "/asminkarki012/react-resumebuilder-app.git/static/js/main.55e09dba.js.map",
+    "787.290b67da.chunk.js.map": "/asminkarki012/react-resumebuilder-app.git/static/js/787.290b67da.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d4ad3b30.css",
+    "static/js/main.55e09dba.js"
+  ]
+}
