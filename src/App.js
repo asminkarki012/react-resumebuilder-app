@@ -32,7 +32,7 @@ export class App extends Component {
   personalEditHandler = (event) => {
     const { workingMode } = this.state;
     const toEditId = event.target.id;
-    alert(workingMode);
+    
     if (workingMode) {
       this.setState(
         (prevState) =>
