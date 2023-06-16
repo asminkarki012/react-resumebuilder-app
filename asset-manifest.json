@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/asminkarki012/react-resumebuilder-app.git/static/css/main.3489285a.css",
-    "main.js": "/asminkarki012/react-resumebuilder-app.git/static/js/main.9c471605.js",
-    "static/js/498.2fdfcc5c.chunk.js": "/asminkarki012/react-resumebuilder-app.git/static/js/498.2fdfcc5c.chunk.js",
-    "static/js/703.735b4a13.chunk.js": "/asminkarki012/react-resumebuilder-app.git/static/js/703.735b4a13.chunk.js",
-    "static/js/55.922ac662.chunk.js": "/asminkarki012/react-resumebuilder-app.git/static/js/55.922ac662.chunk.js",
-    "static/js/787.290b67da.chunk.js": "/asminkarki012/react-resumebuilder-app.git/static/js/787.290b67da.chunk.js",
-    "index.html": "/asminkarki012/react-resumebuilder-app.git/index.html",
-    "main.3489285a.css.map": "/asminkarki012/react-resumebuilder-app.git/static/css/main.3489285a.css.map",
-    "main.9c471605.js.map": "/asminkarki012/react-resumebuilder-app.git/static/js/main.9c471605.js.map",
-    "498.2fdfcc5c.chunk.js.map": "/asminkarki012/react-resumebuilder-app.git/static/js/498.2fdfcc5c.chunk.js.map",
-    "703.735b4a13.chunk.js.map": "/asminkarki012/react-resumebuilder-app.git/static/js/703.735b4a13.chunk.js.map",
-    "55.922ac662.chunk.js.map": "/asminkarki012/react-resumebuilder-app.git/static/js/55.922ac662.chunk.js.map",
-    "787.290b67da.chunk.js.map": "/asminkarki012/react-resumebuilder-app.git/static/js/787.290b67da.chunk.js.map"
+    "main.css": "/react-resumebuilder-app/static/css/main.3489285a.css",
+    "main.js": "/react-resumebuilder-app/static/js/main.141b9e6b.js",
+    "static/js/498.2fdfcc5c.chunk.js": "/react-resumebuilder-app/static/js/498.2fdfcc5c.chunk.js",
+    "static/js/703.735b4a13.chunk.js": "/react-resumebuilder-app/static/js/703.735b4a13.chunk.js",
+    "static/js/55.922ac662.chunk.js": "/react-resumebuilder-app/static/js/55.922ac662.chunk.js",
+    "static/js/787.290b67da.chunk.js": "/react-resumebuilder-app/static/js/787.290b67da.chunk.js",
+    "index.html": "/react-resumebuilder-app/index.html",
+    "main.3489285a.css.map": "/react-resumebuilder-app/static/css/main.3489285a.css.map",
+    "main.141b9e6b.js.map": "/react-resumebuilder-app/static/js/main.141b9e6b.js.map",
+    "498.2fdfcc5c.chunk.js.map": "/react-resumebuilder-app/static/js/498.2fdfcc5c.chunk.js.map",
+    "703.735b4a13.chunk.js.map": "/react-resumebuilder-app/static/js/703.735b4a13.chunk.js.map",
+    "55.922ac662.chunk.js.map": "/react-resumebuilder-app/static/js/55.922ac662.chunk.js.map",
+    "787.290b67da.chunk.js.map": "/react-resumebuilder-app/static/js/787.290b67da.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3489285a.css",
-    "static/js/main.9c471605.js"
+    "static/js/main.141b9e6b.js"
   ]
 }
