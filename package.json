@@ -1,7 +1,7 @@
 {
   "name": "react-resumebuilder-app",
   "version": "0.1.0",
-  "homepage": "https://github.com/asminkarki012/react-resumebuilder-app.git",
+  "homepage": "https://asminkarki012.github.io/react-resumebuilder-app.git",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
